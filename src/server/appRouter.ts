@@ -1,4 +1,4 @@
-import { publicProcedure, router } from './trpc';
+import { publicProcedure, router } from './trpc.js';
 import {z} from "zod"
 
 const todoInputType = z.object({
