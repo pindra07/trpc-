@@ -1,12 +1,10 @@
 import { createTRPCClient, httpBatchLink } from "@trpc/client";
-import type { AppRouter } from "../server/index.js"
-
-const trpc = createTRPCClient<AppRouter>({
+const trpc = createTRPCClient({
     links: [
         httpBatchLink({
             url: 'http://localhost:3000'
         })
     ]
-})
-
-console.log("hello world")
+});
+console.log("hello world");
+//# sourceMappingURL=index.js.map
