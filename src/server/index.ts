@@ -8,7 +8,7 @@ const appRouter = router({
         username: z.string(), 
         userId: z.number(),
         todo: z.string(),
-        description: z.string
+        description: z.string()
     }))
     .mutation((opts) => {
         const username = opts.input.username
@@ -20,6 +20,28 @@ const appRouter = router({
             id: "1",
             username: username,
             status: "done"
+        }
+    }),
+
+    signUp: publicProcedure
+    .input(z.object({
+        username: z.string(),
+        password: z.string()
+    }))
+    .mutation(async (opts) => {
+        let username = opts.input.username
+        let password = opts.input.password 
+
+        // context
+        const usernameHeader = opts.ctx.username
+
+        // do Database calls here to insert username and password
+        // Do JWT tokenization here...
+
+        let token = "234343"
+        return {
+            token,
+            usernameHeader
         }
     }),
 
@@ -38,6 +60,14 @@ const appRouter = router({
 // serving the router
 const server = createHTTPServer({
     router: appRouter,
+    createContext(opts) {
+        let authHeader = opts.req.headers["authorization"];
+        console.log(authHeader)
+        // jwt.verify()
+        return {
+            username: "123"
+        }
+    }
   });
   server.listen(3000);
 
@@ -47,9 +77,10 @@ export type AppRouter = typeof appRouter;
 // TASKS 
 // Create a Todo (completed)
 // Update a Todo (completed)
+// serving router (completed)
+// Calling from client (client can be node.js, next, react, etc....) (completed)
 
+
+// context and middlewares
 // authentication in trpc
 
-// serving router (completed)
-
-// Calling from client... (client can be node.js, next, react, etc....)

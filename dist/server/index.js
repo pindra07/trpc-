@@ -7,7 +7,7 @@ const appRouter = router({
         username: z.string(),
         userId: z.number(),
         todo: z.string(),
-        description: z.string
+        description: z.string()
     }))
         .mutation((opts) => {
         const username = opts.input.username;
@@ -19,6 +19,21 @@ const appRouter = router({
             id: "1",
             username: username,
             status: "done"
+        };
+    }),
+    signUp: publicProcedure
+        .input(z.object({
+        username: z.string(),
+        password: z.string()
+    }))
+        .mutation(async (opts) => {
+        let username = opts.input.username;
+        let password = opts.input.password;
+        // do Database calls here to insert username and password
+        // Do JWT tokenization here...
+        let token = "234343";
+        return {
+            token
         };
     }),
     updateTodo: publicProcedure // procedure 2

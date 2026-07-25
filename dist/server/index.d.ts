@@ -9,12 +9,22 @@ declare const appRouter: import("@trpc/server").TRPCBuiltRouter<{
             username: string;
             userId: number;
             todo: string;
-            description: unknown;
+            description: string;
         };
         output: {
             id: string;
             username: string;
             status: string;
+        };
+        meta: object;
+    }>;
+    signUp: import("@trpc/server").TRPCMutationProcedure<{
+        input: {
+            username: string;
+            password: string;
+        };
+        output: {
+            token: string;
         };
         meta: object;
     }>;
