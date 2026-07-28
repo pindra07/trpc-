@@ -10,3 +10,7 @@ To Do
 6. Context in Trpc ✅
 7. Middlewares in Trpc
 8. Doing Authentication in trpc ✅
+9. Merging Router
+10. Hosting 
+11. Data transformers
+12. Next.JS
