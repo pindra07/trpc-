@@ -61,6 +61,7 @@ const appRouter = router({
 const server = createHTTPServer({
     router: appRouter,
     createContext(opts) {
+        // You should do all the headers operations here...
         let authHeader = opts.req.headers["authorization"];
         console.log(authHeader)
         // jwt.verify()
