@@ -82,6 +82,7 @@ export type AppRouter = typeof appRouter;
 // Calling from client (client can be node.js, next, react, etc....) (completed)
 
 
-// context and middlewares
-// authentication in trpc
+// context in trpc (completed)
+// middlewares in trpc 
+// authentication in trpc (completed)
 
